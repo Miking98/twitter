@@ -15,14 +15,14 @@ import KeychainAccess
 class APIManager: SessionManager {
     
     // MARK: TODO: Add App Keys
-    static let consumerKey = "YOUR_KEY_HERE"
-    static let consumerSecret = "YOUR_SECRET_HERE"
+    static let consumerKey = "9ZErFn6ZTRNl1blfepBWvcabB"
+    static let consumerSecret = "dnHfLk59WrK3vYftv6cOROgDPFoYPAwGz78EiWG324zFT8tq19"
     
     static let requestTokenURL = "https://api.twitter.com/oauth/request_token"
     static let authorizeURL = "https://api.twitter.com/oauth/authorize"
     static let accessTokenURL = "https://api.twitter.com/oauth/access_token"
     
-    static let callbackURLString = "alamoTwitter://"
+    static let callbackURLString = "twitter://"
     
     // MARK: Twitter API methods
     func login(success: @escaping () -> (), failure: @escaping (Error?) -> ()) {
