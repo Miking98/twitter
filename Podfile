@@ -7,6 +7,7 @@ target 'twitter' do
 
   # Pods for twitter
   pod 'Alamofire', '~> 4.4'
+  pod 'AlamofireImage'
   pod 'OAuthSwift', '~> 1.1.0'
   pod 'OAuthSwiftAlamofire'
   pod 'Prephirences'
