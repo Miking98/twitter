@@ -46,5 +46,11 @@ class Tweet {
         
         
     }
+    
+    static func tweets(with array: [[String: Any]]) -> [Tweet] {
+        return array.flatMap({ (dictionary) -> Tweet in
+            Tweet(dictionary: dictionary)
+        })
+    }
 }
 
