@@ -40,7 +40,8 @@ class APIManager: SessionManager {
                 } else if let user = user {
                     print("Welcome \(user.name)")
                     
-                    // MARK: TODO: set User.current, so that it's persisted
+                    // Initialize current user
+                    User.current = user
                     
                     success()
                 }

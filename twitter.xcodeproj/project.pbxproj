@@ -140,19 +140,15 @@
 		9251B17F1F0AE1500016E308 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
-				9251B1AE1F0AE2C10016E308 /* APIManager.swift */,
+				92A5ECC01F0AEFDD00FFC7D5 /* Models */,
+				92A5ECBF1F0AEFBE00FFC7D5 /* ViewControllers */,
+				92A5ECBD1F0AEFB400FFC7D5 /* Views */,
 				9251B1801F0AE1500016E308 /* AppDelegate.swift */,
-				9251B1821F0AE1500016E308 /* ViewController.swift */,
 				9251B1841F0AE1500016E308 /* Main.storyboard */,
-				9251B1B01F0AE2FE0016E308 /* LoginViewController.swift */,
-				9251B1B21F0AE3060016E308 /* TimelineViewController.swift */,
-				9251B1B31F0AE3060016E308 /* Tweet.swift */,
-				9251B1B41F0AE3060016E308 /* TweetCell.swift */,
-				9251B1B51F0AE3060016E308 /* User.swift */,
-				9251B1871F0AE1500016E308 /* Assets.xcassets */,
-				92A5ECBC1F0AE3E600FFC7D5 /* twitter.entitlements */,
 				9251B1891F0AE1500016E308 /* LaunchScreen.storyboard */,
 				9251B18C1F0AE1500016E308 /* Info.plist */,
+				9251B1871F0AE1500016E308 /* Assets.xcassets */,
+				92A5ECBC1F0AE3E600FFC7D5 /* twitter.entitlements */,
 			);
 			path = twitter;
 			sourceTree = "<group>";
@@ -173,6 +169,34 @@
 				9251B1A21F0AE1500016E308 /* Info.plist */,
 			);
 			path = twitterUITests;
+			sourceTree = "<group>";
+		};
+		92A5ECBD1F0AEFB400FFC7D5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9251B1B41F0AE3060016E308 /* TweetCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		92A5ECBF1F0AEFBE00FFC7D5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9251B1821F0AE1500016E308 /* ViewController.swift */,
+				9251B1B01F0AE2FE0016E308 /* LoginViewController.swift */,
+				9251B1B21F0AE3060016E308 /* TimelineViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		92A5ECC01F0AEFDD00FFC7D5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9251B1AE1F0AE2C10016E308 /* APIManager.swift */,
+				9251B1B31F0AE3060016E308 /* Tweet.swift */,
+				9251B1B51F0AE3060016E308 /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		A1ED6537EDC97291DD853EAF /* Frameworks */ = {
