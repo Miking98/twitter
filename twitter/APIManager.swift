@@ -117,7 +117,9 @@ class APIManager: SessionManager {
     }
     
     // MARK: TODO: Favorite a Tweet
-    
+    func favoriteTweet(tweet: Tweet, delta: Int, completion: @escaping (Error?) -> ()) {
+        
+    }
     // MARK: TODO: Un-Favorite a Tweet
     
     // MARK: TODO: Retweet
