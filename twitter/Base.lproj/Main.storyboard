@@ -137,6 +137,7 @@
                                                     <rect key="frame" x="96" y="117" width="28" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="retweet-icon"/>
+                                                    <state key="selected" image="retweet-icon-green"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Retweets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHm-Ku-4kp">
                                                     <rect key="frame" x="125" y="121" width="71" height="21"/>
@@ -149,6 +150,7 @@
                                                     <rect key="frame" x="192" y="116" width="28" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="favor-icon"/>
+                                                    <state key="selected" image="favor-icon-red"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRb-bE-f8r">
                                                     <rect key="frame" x="217" y="121" width="70" height="21"/>
@@ -232,8 +234,10 @@
     <resources>
         <image name="TwitterLogoBlue" width="200" height="200"/>
         <image name="favor-icon" width="30" height="30"/>
+        <image name="favor-icon-red" width="30" height="30"/>
         <image name="message-icon" width="30" height="30"/>
         <image name="reply-icon" width="30" height="30"/>
         <image name="retweet-icon" width="30" height="30"/>
+        <image name="retweet-icon-green" width="30" height="30"/>
     </resources>
 </document>
