@@ -17,11 +17,16 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set up home feed table view
         tableView.dataSource = self
         tableView.delegate = self
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        
+        // Initialize a UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
         
         APIManager.shared.getHomeTimeLine { (tweets, error) in
             if let tweets = tweets {
@@ -47,6 +52,17 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        APIManager.shared.getHomeTimeLine { (tweets, error) in
+            if let tweets = tweets {
+                self.tweets = tweets
+                self.tableView.reloadData()
+            } else if let error = error {
+                print("Error refreshing home timeline: " + error.localizedDescription)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
