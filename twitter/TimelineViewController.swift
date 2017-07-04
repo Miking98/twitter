@@ -62,6 +62,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             } else if let error = error {
                 print("Error refreshing home timeline: " + error.localizedDescription)
             }
+            refreshControl.endRefreshing()
         }
     }
     
