@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class TweetCell: UITableViewCell {
     
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -22,6 +24,7 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
+            profileImageView.af_setImage(withURL: tweet.user.profileImage!, placeholderImage: #imageLiteral(resourceName: "profile-Icon"), runImageTransitionIfCached: true, completion: nil)
             nameLabel.text = tweet.user.name
             screenNameLabel.text = tweet.user.screenName
             dateLabel.text = tweet.createdAtString

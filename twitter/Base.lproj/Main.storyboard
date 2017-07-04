@@ -218,6 +218,7 @@
                                             <outlet property="favoriteLabel" destination="yRb-bE-f8r" id="dTk-1k-zuo"/>
                                             <outlet property="messageLabel" destination="c6o-EC-FXC" id="NM7-vK-i6f"/>
                                             <outlet property="nameLabel" destination="QMF-xz-FYX" id="zPK-oU-Acj"/>
+                                            <outlet property="profileImageView" destination="uT1-aE-Xa0" id="JAt-Hl-ehE"/>
                                             <outlet property="replyLabel" destination="4dn-x9-uPk" id="bd0-9v-rxy"/>
                                             <outlet property="retweetLabel" destination="dHm-Ku-4kp" id="LKI-s7-LfZ"/>
                                             <outlet property="screenNameLabel" destination="jau-yX-S1d" id="czr-fD-zwh"/>
