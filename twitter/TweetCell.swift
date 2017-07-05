@@ -10,6 +10,9 @@ import UIKit
 import AlamofireImage
 import TTTAttributedLabel
 
+protocol TweetCellDelegate {
+}
+
 class TweetCell: UITableViewCell {
     
     @IBOutlet weak var profileImageView: UIImageView!

@@ -138,7 +138,7 @@
         <!--Detail View Controller-->
         <scene sceneID="z9h-YD-1bl">
             <objects>
-                <viewController id="C7l-nd-eKP" customClass="detailViewController" customModule="twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="C7l-nd-eKP" customClass="DetailViewController" customModule="twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yWg-4t-vHm"/>
                         <viewControllerLayoutGuide type="bottom" id="s7m-mi-CP1"/>
@@ -167,7 +167,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maH-vg-DfC" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="16" y="132" width="42" height="21"/>
+                                <rect key="frame" x="16" y="132" width="327" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -225,7 +225,7 @@
                                 <state key="normal" image="retweet-empty-icon"/>
                                 <state key="selected" image="retweet-icon-green"/>
                                 <connections>
-                                    <action selector="retweetButtonTouch:" destination="U1g-kw-izy" eventType="touchUpInside" id="CaB-S6-GGn"/>
+                                    <action selector="retweetButtonTouch:" destination="C7l-nd-eKP" eventType="touchUpInside" id="txl-HI-Zhu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7v7-1D-WEE">
@@ -245,7 +245,7 @@
                                 <state key="normal" image="favorite-empty-icon"/>
                                 <state key="selected" image="favor-icon-red"/>
                                 <connections>
-                                    <action selector="favoriteButtonTouch:" destination="U1g-kw-izy" eventType="touchUpInside" id="Gr6-JO-rwh"/>
+                                    <action selector="favoriteButtonTouch:" destination="C7l-nd-eKP" eventType="touchUpInside" id="1au-z1-Qph"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2E-BM-Qab">
@@ -282,6 +282,7 @@
                             <constraint firstItem="maH-vg-DfC" firstAttribute="top" secondItem="G55-Ds-xsz" secondAttribute="bottom" constant="10" id="PXp-BW-5tQ"/>
                             <constraint firstItem="xj9-aR-yh6" firstAttribute="leading" secondItem="LHa-aL-vEu" secondAttribute="leadingMargin" id="Rpk-lE-jmV"/>
                             <constraint firstItem="sHL-Xh-Fcd" firstAttribute="trailing" secondItem="LHa-aL-vEu" secondAttribute="trailingMargin" id="Rwy-4T-FCy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="maH-vg-DfC" secondAttribute="trailing" constant="16" id="YoQ-df-4YA"/>
                             <constraint firstItem="b5D-QA-cOr" firstAttribute="leading" secondItem="yYL-fw-Fi7" secondAttribute="leading" id="Zc9-l2-41y"/>
                             <constraint firstItem="qld-nq-kbq" firstAttribute="leading" secondItem="Y2E-BM-Qab" secondAttribute="trailing" constant="40" id="ZgT-sB-va1"/>
                             <constraint firstItem="yYL-fw-Fi7" firstAttribute="top" secondItem="maH-vg-DfC" secondAttribute="bottom" constant="28.5" id="b8C-EP-DN1"/>
@@ -306,8 +307,10 @@
                     <connections>
                         <outlet property="postContentLabel" destination="maH-vg-DfC" id="oBI-UE-iJB"/>
                         <outlet property="postDateLabel" destination="yYL-fw-Fi7" id="OHp-sS-gXL"/>
+                        <outlet property="postFavoriteButton" destination="3Og-8G-05c" id="zay-gE-ChS"/>
                         <outlet property="postLikesLabel" destination="zL4-Rz-vPe" id="t9L-HF-KWj"/>
-                        <outlet property="postProfileImageView" destination="G55-Ds-xsz" id="9VF-jb-dTz"/>
+                        <outlet property="postProfileImageView" destination="G55-Ds-xsz" id="F8Y-iA-hsC"/>
+                        <outlet property="postRetweetButton" destination="qld-nq-kbq" id="Gut-g2-Qm0"/>
                         <outlet property="postRetweetsLabel" destination="b5D-QA-cOr" id="Nx2-ER-Guc"/>
                         <outlet property="postScreenNameLabel" destination="XMC-eM-Kj3" id="ee9-X8-ZDb"/>
                         <outlet property="postUsernameLabel" destination="Neg-dd-pzh" id="B5u-gz-kmq"/>
@@ -422,7 +425,7 @@
                                                     <state key="normal" image="favor-icon"/>
                                                     <state key="selected" image="favor-icon-red"/>
                                                     <connections>
-                                                        <action selector="favoriteButtonTouch:" destination="U1g-kw-izy" eventType="touchUpInside" id="I5W-he-Fzz"/>
+                                                        <action selector="favoriteButtonTouch:" destination="U1g-kw-izy" eventType="touchUpInside" id="BEJ-wx-0Ty"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -472,7 +475,7 @@
                                             <outlet property="retweetLabel" destination="dHm-Ku-4kp" id="LKI-s7-LfZ"/>
                                             <outlet property="screenNameLabel" destination="jau-yX-S1d" id="czr-fD-zwh"/>
                                             <outlet property="tweetLabel" destination="mMu-rU-fJI" id="OKa-ex-Fg5"/>
-                                            <segue destination="C7l-nd-eKP" kind="show" id="4An-BF-F76"/>
+                                            <segue destination="C7l-nd-eKP" kind="show" identifier="homeToDetail" id="iCh-gw-kgV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -494,7 +497,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="edit-icon" id="424-M8-OM6">
                             <connections>
-                                <segue destination="Yaa-OG-Mr9" kind="presentation" id="T7j-o4-0tC"/>
+                                <segue destination="Yaa-OG-Mr9" kind="presentation" identifier="homeToCompose" id="T7j-o4-0tC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -531,6 +534,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hWI-un-SuV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="nWb-8d-jsS">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -541,23 +545,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UhC-hZ-Exa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="860" y="36.431784107946029"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="v88-ia-mHb">
-            <objects>
-                <viewController id="CoZ-sM-XLE" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="AVF-gM-CP7"/>
-                        <viewControllerLayoutGuide type="bottom" id="BDD-bf-4X9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="OUA-RL-F73">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4w4-3d-135" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
