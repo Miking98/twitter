@@ -43,6 +43,10 @@ class DetailViewController: UIViewController {
         if (tweet.favorited) {
             postFavoriteButton.isSelected = true
         }
+        
+        // Style profile image
+        postProfileImageView.layer.cornerRadius = postProfileImageView.frame.size.width / 2;
+        postProfileImageView.clipsToBounds = true;
     }
     
     override func didReceiveMemoryWarning() {

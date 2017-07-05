@@ -35,10 +35,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         tweetButton.layer.cornerRadius = 10
         
         // Style profile image
-        profileImageView.backgroundColor = .clear
-        profileImageView.layer.cornerRadius = 100
-        profileImageView.layer.borderWidth = 1
-        profileImageView.layer.borderColor = UIColor.black.cgColor
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2;
+        profileImageView.clipsToBounds = true;
     }
 
     override func didReceiveMemoryWarning() {
