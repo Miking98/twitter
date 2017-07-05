@@ -35,6 +35,12 @@ class TweetCell: UITableViewCell {
             
             retweetLabel.text = String(format: "%d", tweet.retweetCount)
             favoriteLabel.text = String(format: "%d", tweet.favoriteCount)
+            if (tweet.retweeted) {
+                retweetButton.isSelected = true
+            }
+            if (tweet.favorited) {
+                favoriteButton.isSelected = true
+            }
         }
     }
     
@@ -59,7 +65,7 @@ class TweetCell: UITableViewCell {
         APIManager.shared.retweetTweet(tweet: tweet, delta: delta) { (error: Error?) in
             if error != nil {
                 print("Error retweeting this tweet")
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
             }
             else {
                 self.retweetLabel.text = String(format: "%d", (Int(self.retweetLabel.text!) ?? 0) + delta)
@@ -76,10 +82,11 @@ class TweetCell: UITableViewCell {
         APIManager.shared.favoriteTweet(tweet: tweet, delta: delta) { (error: Error?) in
             if error != nil {
                 print("Error favoriting this tweet")
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
             }
             else {
-                
+                self.favoriteLabel.text = String(format: "%d", (Int(self.favoriteLabel.text!) ?? 0) + delta)
+                self.favoriteButton.isSelected = !self.favoriteButton.isSelected
             }
         }
     }

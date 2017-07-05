@@ -126,7 +126,6 @@ class APIManager: SessionManager {
         else {
             url = "https://api.twitter.com/1.1/favorites/destroy.json" + "?id=" + statusID
         }
-        print(url)
         request(URL(string: url)!, method: .post)
             .validate()
             .responseJSON { (response) in
