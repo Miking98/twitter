@@ -12,6 +12,8 @@ target 'twitter' do
   pod 'OAuthSwiftAlamofire'
   pod 'Prephirences'
   pod 'KeychainAccess'
+  pod 'TTTAttributedLabel'
+  pod 'RSKPlaceholderTextView'
 
   target 'twitterTests' do
     inherit! :search_paths

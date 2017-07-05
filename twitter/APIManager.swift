@@ -116,13 +116,48 @@ class APIManager: SessionManager {
         }
     }
     
-    // MARK: TODO: Favorite a Tweet
+    // Favorite/Unfavorite a Tweet
     func favoriteTweet(tweet: Tweet, delta: Int, completion: @escaping (Error?) -> ()) {
-        
+        let statusID = String(tweet.id)
+        var url = ""
+        if delta == 1 {
+            url = "https://api.twitter.com/1.1/favorites/create.json" + "?id=" + statusID
+        }
+        else {
+            url = "https://api.twitter.com/1.1/favorites/destroy.json" + "?id=" + statusID
+        }
+        print(url)
+        request(URL(string: url)!, method: .post)
+            .validate()
+            .responseJSON { (response) in
+                guard response.result.isSuccess else {
+                    completion(response.result.error)
+                    return
+                }
+                completion(nil)
+        }
     }
-    // MARK: TODO: Un-Favorite a Tweet
     
-    // MARK: TODO: Retweet
+    // Retweet/Un-retweet a Tweet
+    func retweetTweet(tweet: Tweet, delta: Int, completion: @escaping (Error?) -> ()) {
+        let statusID = String(tweet.id)
+        var url = ""
+        if delta == 1 {
+            url = "https://api.twitter.com/1.1/statuses/retweet/" + statusID + ".json"
+        }
+        else {
+            url = "https://api.twitter.com/1.1/statuses/unretweet/" + statusID + ".json"
+        }
+        request(URL(string: url)!, method: .post)
+            .validate()
+            .responseJSON { (response) in
+                guard response.result.isSuccess else {
+                    completion(response.result.error)
+                    return
+                }
+                completion(nil)
+        }
+    }
     
     // MARK: TODO: Un-Retweet
     

@@ -21,6 +21,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var retweetLabel: UILabel!
     @IBOutlet weak var favoriteLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     var tweet: Tweet! {
         didSet {
@@ -35,6 +37,8 @@ class TweetCell: UITableViewCell {
         }
     }
     
+    var delegate: TweetCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -45,5 +49,39 @@ class TweetCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
+    @IBAction func retweetButtonTouch(_ sender: UIButton) {
+        var delta = 1;
+        if retweetButton.isSelected {
+            delta = -1;
+        }
+        APIManager.shared.retweetTweet(tweet: tweet, delta: delta) { (error: Error?) in
+            if error != nil {
+                print("Error retweeting this tweet")
+                print(error?.localizedDescription)
+            }
+            else {
+                self.retweetLabel.text = String(format: "%d", (Int(self.retweetLabel.text!) ?? 0) + delta)
+                self.retweetButton.isSelected = !self.retweetButton.isSelected
+            }
+        }
+    }
+    
+    @IBAction func favoriteButtonTouch(_ sender: UIButton) {
+        var delta = 1;
+        if favoriteButton.isSelected {
+            delta = -1;
+        }
+        APIManager.shared.favoriteTweet(tweet: tweet, delta: delta) { (error: Error?) in
+            if error != nil {
+                print("Error favoriting this tweet")
+                print(error?.localizedDescription)
+            }
+            else {
+                
+            }
+        }
+    }
+    
     
 }

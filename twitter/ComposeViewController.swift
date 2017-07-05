@@ -9,11 +9,15 @@
 import UIKit
 
 class ComposeViewController: UIViewController {
-
+    
+    @IBOutlet weak var charCountLabel: UILabel!
+    @IBOutlet weak var tweetButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Style Tweet button
+        tweetButton.backgroundColor = UIColor.blue
     }
 
     override func didReceiveMemoryWarning() {

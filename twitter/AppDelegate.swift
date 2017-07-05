@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // MARK: TODO: Check for logged in user
         if (User.current != nil) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mainNavigationVC = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
@@ -37,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    // MARK: TODO: Open URL
     // OAuth step 2
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         // Handle urlcallback sent from Twitter
