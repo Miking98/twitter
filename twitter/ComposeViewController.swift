@@ -72,6 +72,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
             }
             else if let tweet = tweet {
                 self.delegate?.did(post: tweet)
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
