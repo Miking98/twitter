@@ -53,7 +53,7 @@ class TweetCell: UITableViewCell {
         super.awakeFromNib()
         
         // Style profile image
-        profileImageView.layer.cornerRadius = postProfileImageView.frame.size.width / 2;
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2;
         profileImageView.clipsToBounds = true;
     }
     
