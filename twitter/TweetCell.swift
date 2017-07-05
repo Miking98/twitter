@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import TTTAttributedLabel
 
 class TweetCell: UITableViewCell {
     
@@ -15,7 +16,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var tweetLabel: TTTAttributedLabel!
     
     @IBOutlet weak var replyLabel: UILabel!
     @IBOutlet weak var retweetLabel: UILabel!
