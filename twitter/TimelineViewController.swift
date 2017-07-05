@@ -11,7 +11,7 @@ import UIKit
 protocol TweetCellDelegate {
 }
 
-class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TweetCellDelegate {
+class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TweetCellDelegate, ComposeViewControllerDelegate {
     
     var tweets: [Tweet] = []
     
@@ -77,6 +77,15 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func didTapLogout(_ sender: Any) {
         APIManager.shared.logout()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ComposeViewController
+        vc.delegate = self
+    }
+    
+    func did(post: Tweet) {
+        tweets.insert(post, at: 0)
     }
     
 }

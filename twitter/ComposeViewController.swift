@@ -9,12 +9,19 @@
 import UIKit
 import RSKPlaceholderTextView
 
+protocol ComposeViewControllerDelegate {
+    func did(post: Tweet)
+}
+
 class ComposeViewController: UIViewController, UITextViewDelegate {
     
+    @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var contentTextView: RSKPlaceholderTextView!
     @IBOutlet weak var charCountLabel: UILabel!
     @IBOutlet weak var tweetButton: UIButton!
+    
+    var delegate: ComposeViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +31,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         contentTextView.delegate = self
         
         // Style Tweet button
-        tweetButton.backgroundColor = UIColor.init(red: 0/255, green: 172/255, blue: 237/255, alpha: 1)
+        tweetButton.backgroundColor = UIColor.init(red: 224/255, green: 246/255, blue: 255/255, alpha: 1)
         tweetButton.layer.cornerRadius = 10
         
         // Style profile image
@@ -36,18 +43,18 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
         charCountLabel.textColor = UIColor.darkGray
-        print(contentTextView.text.characters.count)
         if (contentTextView.text.characters.count > 0 && contentTextView.text.characters.count <= 140) {
             tweetButton.isEnabled = true
+            tweetButton.backgroundColor = UIColor.init(red: 0/255, green: 172/255, blue: 237/255, alpha: 1)
         }
         else {
             tweetButton.isEnabled = false
+            tweetButton.backgroundColor = UIColor.init(red: 224/255, green: 246/255, blue: 255/255, alpha: 1)
         }
         let charsLeft = 140 - contentTextView.text.characters.count
         charCountLabel.text = String(charsLeft)
@@ -56,6 +63,23 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         }
     }
 
+    @IBAction func tweetButtonTouch(_ sender: UIButton) {
+        let tweetContent = contentTextView.text!
+        APIManager.shared.postTweet(text: tweetContent) { (tweet: Tweet?, error: Error?) in
+            if let error = error {
+                print("Error posting tweet")
+                print(error.localizedDescription)
+            }
+            else if let tweet = tweet {
+                self.delegate?.did(post: tweet)
+            }
+        }
+    }
+    
+    @IBAction func dismissButtonTouch(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

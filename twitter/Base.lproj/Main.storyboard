@@ -69,16 +69,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXr-1C-4Ua">
-                                <rect key="frame" x="305" y="20" width="54" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Dismiss"/>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QIe-uW-fhd" customClass="RSKPlaceholderTextView">
                                 <rect key="frame" x="16" y="67" width="343" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
@@ -98,6 +93,9 @@
                                         <state key="normal" title="Tweet">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tweetButtonTouch:" destination="Yaa-OG-Mr9" eventType="touchUpInside" id="s1E-GF-vFT"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spG-nM-PSe">
                                         <rect key="frame" x="266" y="11" width="29" height="21"/>
@@ -113,12 +111,22 @@
                                 <rect key="frame" x="16" y="28" width="31" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXr-1C-4Ua">
+                                <rect key="frame" x="329" y="29" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="dismissButtonTouch:" destination="Yaa-OG-Mr9" eventType="touchUpInside" id="eQP-3e-IeF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="charCountLabel" destination="spG-nM-PSe" id="VXi-hF-I9m"/>
                         <outlet property="contentTextView" destination="QIe-uW-fhd" id="8jK-We-JyN"/>
+                        <outlet property="dismissButton" destination="bXr-1C-4Ua" id="cAh-1R-Em6"/>
                         <outlet property="profileImageView" destination="cEP-Pd-tV6" id="OxW-TJ-rhc"/>
                         <outlet property="tweetButton" destination="XTB-uh-y1W" id="l7l-Ge-ILF"/>
                     </connections>
