@@ -15,6 +15,8 @@ protocol ComposeViewControllerDelegate {
 
 class ComposeViewController: UIViewController, UITextViewDelegate {
     
+    @IBOutlet weak var replyingToScreenNameLabel: UILabel!
+    @IBOutlet weak var replyingToLabel: UILabel!
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var contentTextView: RSKPlaceholderTextView!
@@ -22,6 +24,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tweetButton: UIButton!
     
     var delegate: ComposeViewControllerDelegate?
+    
+    var replyToTweet: Tweet?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +41,12 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         // Style profile image
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2;
         profileImageView.clipsToBounds = true;
+        
+        if replyToTweet != nil {
+            replyingToLabel.isHidden = false
+            replyingToScreenNameLabel.isHidden = false
+            replyingToScreenNameLabel.text = "@" + replyToTweet!.user.screenName!
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,7 +73,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func tweetButtonTouch(_ sender: UIButton) {
         let tweetContent = contentTextView.text!
-        APIManager.shared.postTweet(text: tweetContent) { (tweet: Tweet?, error: Error?) in
+        APIManager.shared.postTweet(text: tweetContent, replyTo: replyToTweet) { (tweet: Tweet?, error: Error?) in
             if let error = error {
                 print("Error posting tweet")
                 print(error.localizedDescription)

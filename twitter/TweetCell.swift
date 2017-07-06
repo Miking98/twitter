@@ -32,7 +32,7 @@ class TweetCell: UITableViewCell {
         didSet {
             profileImageView.af_setImage(withURL: tweet.user.profileImage!, placeholderImage: #imageLiteral(resourceName: "profile-Icon"), runImageTransitionIfCached: true, completion: nil)
             nameLabel.text = tweet.user.name
-            screenNameLabel.text = tweet.user.screenName
+            screenNameLabel.text = "@" + tweet.user.screenName!
             dateLabel.text = tweet.createdAtString
             tweetLabel.text = tweet.text
             

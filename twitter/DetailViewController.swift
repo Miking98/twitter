@@ -29,9 +29,11 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(tweet)
+        
         postProfileImageView.af_setImage(withURL: tweet.user.profileImage!, placeholderImage: #imageLiteral(resourceName: "profile-Icon"), runImageTransitionIfCached: true, completion: nil)
         postUsernameLabel.text = tweet.user.name
-        postScreenNameLabel.text = tweet.user.screenName
+        postScreenNameLabel.text = "@" + tweet.user.screenName!
         postDateLabel.text = tweet.createdAtString
         postContentLabel.text = tweet.text
         
@@ -84,6 +86,13 @@ class DetailViewController: UIViewController {
                 self.postLikesLabel.text = String(format: "%d", (Int(self.postLikesLabel.text!) ?? 0) + delta)
                 self.postFavoriteButton.isSelected = !self.postFavoriteButton.isSelected
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "detailToCompose") {
+            let vc = segue.destination as! ComposeViewController
+            vc.replyToTweet = tweet
         }
     }
 }

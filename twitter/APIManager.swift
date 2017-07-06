@@ -150,10 +150,17 @@ class APIManager: SessionManager {
         }
     }
     
-    // Post a Tweet
-    func postTweet(text: String, completion: @escaping (Tweet?, Error?) -> ()) {
+    // Post a Tweet/Reply to a Tweet
+    func postTweet(text: String, replyTo: Tweet? = nil, completion: @escaping (Tweet?, Error?) -> ()) {
         let urlString = "https://api.twitter.com/1.1/statuses/update.json"
-        let parameters = [ "status" : text ]
+        var parameters = [String: Any]()
+        if let replyTo = replyTo {
+            parameters["status"] = "@" + replyTo.user.screenName! + " " + text
+            parameters["in_reply_to_status_id"] = replyTo.id
+        }
+        else {
+            parameters["status"] = text
+        }
         oauthManager.client.post(urlString, parameters: parameters, headers: nil, body: nil, success: { (response: OAuthSwiftResponse) in
             let tweetDictionary = try! response.jsonObject() as! [String: Any]
             let tweet = Tweet(dictionary: tweetDictionary)
