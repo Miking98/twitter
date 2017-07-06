@@ -18,6 +18,7 @@ class Tweet {
     var retweetCount: Int! // Update favorite count label
     var retweeted: Bool! // Configure retweet button
     var user: User // Contains name, screenname, etc. of tweet author
+    var createdAt: Date // Date object
     var createdAtString: String // Display date
     
     // MARK: - Create initializer with dictionary
@@ -38,12 +39,12 @@ class Tweet {
         formatter.dateFormat = "E MMM d HH:mm:ss Z y"
         // Convert String to Date
         let date = formatter.date(from: createdAtOriginalString)!
+        createdAt = date
         // Configure output format
         formatter.dateStyle = .short
         formatter.timeStyle = .none
         // Convert Date to String
         createdAtString = formatter.string(from: date)
-        
         
     }
     

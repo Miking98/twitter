@@ -76,7 +76,7 @@ class APIManager: SessionManager {
         }
     }
         
-    func getHomeTimeLine(completion: @escaping ([Tweet]?, Error?) -> ()) {
+    func getHomeTimeLine(beforeTweet: Tweet? = nil, afterTweet: Tweet? = nil, completion: @escaping ([Tweet]?, Error?) -> ()) {
 
         // This uses tweets from disk to avoid hitting rate limit. Comment out if you want fresh
         // tweets,
@@ -90,8 +90,15 @@ class APIManager: SessionManager {
 //            return
 //        }
         
-        
-        request(URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")!, method: .get)
+        let urlString = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        var parameters = [String: Any]()
+        if let beforeTweet = beforeTweet {
+            parameters["max_id"] = beforeTweet.id
+        }
+        else if let afterTweet = afterTweet {
+            parameters["since_id"] = afterTweet.id
+        }
+        request(URL(string: urlString)!, method: .get, parameters: parameters, encoding: URLEncoding.default)
             .validate()
             .responseJSON { (response) in
                 guard response.result.isSuccess else {
