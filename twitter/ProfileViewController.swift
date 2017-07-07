@@ -9,7 +9,9 @@
 import UIKit
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ProfileTweetCellDelegate, ComposeViewControllerDelegate {
-
+    
+    @IBOutlet var mainView: UIView!
+    
     @IBOutlet weak var profileBannerImageView: UIImageView!
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -66,7 +68,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         // Initialize a UIRefreshControl
         refreshControl.addTarget(self, action: #selector(refreshControlAction), for: UIControlEvents.valueChanged)
-        tableView.insertSubview(refreshControl, at: 0)
+        mainView.insertSubview(refreshControl, at: 0)
         
         fetchTweets {
         }

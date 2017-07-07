@@ -615,6 +615,7 @@
                         <outlet property="followersLabel" destination="zfY-S0-bmA" id="vdt-wl-1W7"/>
                         <outlet property="followingLabel" destination="Vzg-BQ-saC" id="P8u-aG-SQz"/>
                         <outlet property="locationLabel" destination="amz-iL-eMs" id="UhY-tG-0hq"/>
+                        <outlet property="mainView" destination="C9J-9T-elM" id="w3v-CN-vFA"/>
                         <outlet property="profileBannerImageView" destination="0n8-W0-i7L" id="Yuy-Ge-T38"/>
                         <outlet property="profileImageView" destination="a0v-2T-C6K" id="qzO-BL-lBy"/>
                         <outlet property="screenNameLabel" destination="3gv-f7-hpd" id="qqW-2p-GS4"/>
