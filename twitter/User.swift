@@ -34,6 +34,7 @@ class User {
         }
     }
     
+    var id: String
     var name: String
     var screenName: String?
     var dictionary: [String: Any]?
@@ -49,6 +50,7 @@ class User {
     
     init(dictionary: [String: Any]) {
         self.dictionary = dictionary
+        id = dictionary["id_str"] as! String
         name = dictionary["name"] as! String
         screenName = dictionary["screen_name"] as? String
         profileImage = URL(string: dictionary["profile_image_url_https"] as? String ?? "")

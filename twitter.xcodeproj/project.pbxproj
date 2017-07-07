@@ -22,6 +22,7 @@
 		9251B1B81F0AE3060016E308 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9251B1B41F0AE3060016E308 /* TweetCell.swift */; };
 		9251B1B91F0AE3060016E308 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9251B1B51F0AE3060016E308 /* User.swift */; };
 		929C2EB51F0F06A500B28B74 /* ProfileTweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C2EB41F0F06A500B28B74 /* ProfileTweetCell.swift */; };
+		929C2EBA1F103FDA00B28B74 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 929C2EB91F103FDA00B28B74 /* FXBlurView.m */; };
 		92A5ECC21F0AF9D500FFC7D5 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5ECC11F0AF9D500FFC7D5 /* ComposeViewController.swift */; };
 		92CC6CE71F0DACEA00370329 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC6CE61F0DACEA00370329 /* DetailViewController.swift */; };
 		92CC6CE91F0DBA3700370329 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC6CE81F0DBA3700370329 /* ProfileViewController.swift */; };
@@ -74,6 +75,10 @@
 		9251B1B41F0AE3060016E308 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		9251B1B51F0AE3060016E308 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		929C2EB41F0F06A500B28B74 /* ProfileTweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTweetCell.swift; sourceTree = "<group>"; };
+		929C2EB61F103FB700B28B74 /* twitter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "twitter-Bridging-Header.h"; sourceTree = "<group>"; };
+		929C2EB81F103FDA00B28B74 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		929C2EB91F103FDA00B28B74 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		929C2EBB1F103FF300B28B74 /* twitter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "twitter-Bridging-Header.h"; sourceTree = "<group>"; };
 		92A5ECBC1F0AE3E600FFC7D5 /* twitter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = twitter.entitlements; sourceTree = "<group>"; };
 		92A5ECC11F0AF9D500FFC7D5 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		92CC6CE61F0DACEA00370329 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +155,8 @@
 		9251B17F1F0AE1500016E308 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
+				929C2EB81F103FDA00B28B74 /* FXBlurView.h */,
+				929C2EB91F103FDA00B28B74 /* FXBlurView.m */,
 				92A5ECC01F0AEFDD00FFC7D5 /* Models */,
 				92A5ECBF1F0AEFBE00FFC7D5 /* ViewControllers */,
 				92A5ECBD1F0AEFB400FFC7D5 /* Views */,
@@ -159,6 +166,8 @@
 				9251B18C1F0AE1500016E308 /* Info.plist */,
 				9251B1871F0AE1500016E308 /* Assets.xcassets */,
 				92A5ECBC1F0AE3E600FFC7D5 /* twitter.entitlements */,
+				929C2EBB1F103FF300B28B74 /* twitter-Bridging-Header.h */,
+				929C2EB61F103FB700B28B74 /* twitter-Bridging-Header.h */,
 			);
 			path = twitter;
 			sourceTree = "<group>";
@@ -301,6 +310,7 @@
 				TargetAttributes = {
 					9251B17C1F0AE1500016E308 = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					9251B1901F0AE1500016E308 = {
@@ -514,6 +524,7 @@
 				9251B1B91F0AE3060016E308 /* User.swift in Sources */,
 				92CC6CE91F0DBA3700370329 /* ProfileViewController.swift in Sources */,
 				9251B1B71F0AE3060016E308 /* Tweet.swift in Sources */,
+				929C2EBA1F103FDA00B28B74 /* FXBlurView.m in Sources */,
 				92CC6CE71F0DACEA00370329 /* DetailViewController.swift in Sources */,
 				9251B1811F0AE1500016E308 /* AppDelegate.swift in Sources */,
 				929C2EB51F0F06A500B28B74 /* ProfileTweetCell.swift in Sources */,
@@ -670,10 +681,13 @@
 			baseConfigurationReference = 19BD96BFAE9F1F265BCA27D4 /* Pods-twitter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miking98.twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "twitter/twitter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -683,10 +697,12 @@
 			baseConfigurationReference = 476A72A4BFA801931D2EB9EB /* Pods-twitter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miking98.twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "twitter/twitter-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

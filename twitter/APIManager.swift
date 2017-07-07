@@ -178,6 +178,37 @@ class APIManager: SessionManager {
     }
     
     
+    // Get user's profile timeline
+    func getProfileTimeline(user: User, beforeTweet: Tweet? = nil, afterTweet: Tweet? = nil, completion: @escaping ([Tweet]?, Error?) -> ()) {
+        let urlString = "https://api.twitter.com/1.1/statuses/user_timeline.json"
+        var parameters = [String: Any]()
+        parameters["user_id"] = user.id
+        if let beforeTweet = beforeTweet {
+            parameters["max_id"] = beforeTweet.id
+        }
+        else if let afterTweet = afterTweet {
+            parameters["since_id"] = afterTweet.id
+        }
+        request(URL(string: urlString)!, method: .get, parameters: parameters, encoding: URLEncoding.default)
+            .validate()
+            .responseJSON { (response) in
+                guard response.result.isSuccess else {
+                    completion(nil, response.result.error)
+                    return
+                }
+                guard let tweetDictionaries = response.result.value as? [[String: Any]] else {
+                    print("Failed to parse tweets")
+                    let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Failed to parse tweets"])
+                    completion(nil, error)
+                    return
+                }
+                let tweets = tweetDictionaries.flatMap({ (dictionary) -> Tweet in
+                    Tweet(dictionary: dictionary)
+                })
+                completion(tweets, nil)
+        }
+    }
+    
     //--------------------------------------------------------------------------------//
     
     
