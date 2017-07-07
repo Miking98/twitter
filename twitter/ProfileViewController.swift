@@ -23,8 +23,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var followButton: UIButton!
     
-    @IBOutlet weak var profileBannerImageView:UIImageView!
-    @IBOutlet weak var profileBannerBlurImageView:UIImageView!
+    @IBOutlet var profileBannerImageView:UIImageView!
+    @IBOutlet var profileBannerBlurImageView:UIImageView!
     
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
