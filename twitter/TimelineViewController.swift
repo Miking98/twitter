@@ -62,7 +62,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
         let afterTweet: Tweet? = tweets.count>0 ? tweets[0] : nil
-        fetchTweets(afterTweet: afterTweet, append: true) {
+        fetchTweets(afterTweet: afterTweet, append: tweets.count>0) {
             refreshControl.endRefreshing()
         }
     }
