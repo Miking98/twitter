@@ -76,7 +76,6 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             // When the user has scrolled past the threshold, start requesting
             if (scrollView.contentOffset.y > scrollOffsetThreshold && tableView.isDragging && tweets.count > 0) { // ContentOffset is how far user has scrolled the table view
                 feedIsLoadingMoreData = true
-                print("Fetch")
                 // Update position of loadingMoreView, and start loading indicator
                 let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
                 loadingMoreView?.frame = frame
@@ -137,6 +136,13 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             let tweet = tweets[indexPath.row]
             let vc = segue.destination as! DetailViewController
             vc.tweet = tweet
+        }
+        else if (segue.identifier == "homeToProfile") {
+            let cell = sender as! TweetCell
+            let indexPath = tableView.indexPath(for: cell)!
+            let tweet = tweets[indexPath.row]
+            let vc = segue.destination as! ProfileViewController
+            vc.user = tweet.user
         }
     }
     

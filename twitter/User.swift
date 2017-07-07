@@ -2,8 +2,8 @@
 //  User.swift
 //  twitter_alamofire_demo
 //
-//  Created by Charles Hieger on 6/17/17.
-//  Copyright © 2017 Charles Hieger. All rights reserved.
+//  Created by Michael Wornow on 6/17/17.
+//  Copyright © 2017 Michael Wornow. All rights reserved.
 //
 
 import Foundation
@@ -38,11 +38,26 @@ class User {
     var screenName: String?
     var dictionary: [String: Any]?
     var profileImage: URL?
+    var profileBannerImage: URL?
+    var bio: String?
+    var followersCount: Int?
+    var followingCount: Int?
+    var location: String?
+    var url: String?
+    var verified: Bool?
+    
     
     init(dictionary: [String: Any]) {
         self.dictionary = dictionary
         name = dictionary["name"] as! String
         screenName = dictionary["screen_name"] as? String
-        profileImage = URL(string: dictionary["profile_image_url_https"] as! String)
+        profileImage = URL(string: dictionary["profile_image_url_https"] as? String ?? "")
+        profileBannerImage = URL(string: dictionary["profile_banner_url"] as? String ?? "")
+        bio = dictionary["description"] as? String
+        followersCount = dictionary["followers_count"] as? Int
+        followingCount = dictionary["friends_count"] as? Int
+        location = dictionary["location"] as? String
+        url = dictionary["url"] as? String
+        verified = dictionary["verified"] as? Bool
     }
 }

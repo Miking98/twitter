@@ -29,8 +29,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(tweet)
-        
         postProfileImageView.af_setImage(withURL: tweet.user.profileImage!, placeholderImage: #imageLiteral(resourceName: "profile-Icon"), runImageTransitionIfCached: true, completion: nil)
         postUsernameLabel.text = tweet.user.name
         postScreenNameLabel.text = "@" + tweet.user.screenName!
@@ -93,6 +91,11 @@ class DetailViewController: UIViewController {
         if (segue.identifier == "detailToCompose") {
             let vc = segue.destination as! ComposeViewController
             vc.replyToTweet = tweet
+        }
+        else if (segue.identifier == "detailToProfile") {
+            let vc = segue.destination as! ProfileViewController
+            print(tweet.user)
+            vc.user = tweet.user
         }
     }
 }
