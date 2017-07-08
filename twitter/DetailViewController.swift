@@ -94,7 +94,6 @@ class DetailViewController: UIViewController {
         }
         else if (segue.identifier == "detailToProfile") {
             let vc = segue.destination as! ProfileViewController
-            print(tweet.user)
             vc.user = tweet.user
         }
     }

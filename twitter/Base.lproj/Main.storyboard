@@ -176,20 +176,22 @@
                             </imageView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neg-dd-pzh">
                                 <rect key="frame" x="74" y="28" width="74" height="18"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="U9W-6N-opc" appends="YES" id="CN7-dK-jZq"/>
+                                    <outletCollection property="gestureRecognizers" destination="JxE-Bl-57l" appends="YES" id="baJ-Pc-gTc"/>
                                 </connections>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screen Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMC-eM-Kj3">
                                 <rect key="frame" x="74" y="50" width="87" height="17"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="U9W-6N-opc" appends="YES" id="EjM-pF-Nsr"/>
+                                    <outletCollection property="gestureRecognizers" destination="fAD-88-mQG" appends="YES" id="mk0-SQ-LC9"/>
                                 </connections>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maH-vg-DfC" customClass="TTTAttributedLabel">
@@ -346,9 +348,19 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOk-Gp-aQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="U9W-6N-opc">
+                <tapGestureRecognizer id="U9W-6N-opc" userLabel="Profile Image Tap Gesture">
                     <connections>
                         <segue destination="4Fw-N2-igz" kind="show" identifier="detailToProfile" id="vb0-DM-qNi"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="JxE-Bl-57l" userLabel="Username Tap Gesture">
+                    <connections>
+                        <segue destination="4Fw-N2-igz" kind="show" identifier="detailToProfile" id="IUU-ec-jy6"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="fAD-88-mQG" userLabel="Screen Name Tap Gesture">
+                    <connections>
+                        <segue destination="4Fw-N2-igz" kind="show" identifier="detailToProfile" id="kXO-2U-YOS"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -966,6 +978,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="0Pj-bL-l0S"/>
         <segue reference="wGh-0V-y2C"/>
-        <segue reference="vb0-DM-qNi"/>
+        <segue reference="kXO-2U-YOS"/>
     </inferredMetricsTieBreakers>
 </document>
